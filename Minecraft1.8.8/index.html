@@ -28,6 +28,36 @@
 						assetsURI: "assets.epk",
 						localesURI: "lang/",
 						servers: [
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Play minecraft 1.8 in your browser" />
+		<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.8, 1.8.8" />
+		<title>EaglercraftX 1.8</title>
+		<meta property="og:locale" content="en-US" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="EaglercraftX 1.8" />
+		<meta property="og:description" content="Play minecraft 1.8 in your browser" />
+		<meta property="og:image" content="favicon.png" />
+		<link type="image/png" rel="shortcut icon" href="favicon.png" />
+		<script type="text/javascript" src="classes.js"></script>
+		<script type="text/javascript" src="fix-webm-duration.js"></script>
+		<script type="text/javascript">
+			"use strict";
+			window.addEventListener("load", () => {
+				if(document.location.href.startsWith("file:")) {
+					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
+				}else {
+					
+					// %%%%%%%%% launch options %%%%%%%%%%%%
+					
+					window.eaglercraftXOpts = {
+						container: "game_frame",
+						assetsURI: "assets.epk",
+						localesURI: "lang/",
+						servers: [
 							{ addr: "ws://omit.tk", name: "OMIT"},
 							
 							{name: "Asspixel",addr: "wss://web.asspixel.net/CAP/"},
@@ -39,10 +69,94 @@
               						{
                 					name: "CraftClue",
                 					addr: "wss://play.craftclue.rocks",
-              						};
+              						},
+              {
+                serverName: "Ayunboom",
+                serverAddress: "wss://sus.shhnowisnottheti.me",
+                hideAddress: false,
+              },
+              {
+                serverName: "Sealcraft",
+                serverAddress: "wss://sealcraft.ddns.net:442/servers",
+                hideAddress: false,
+              },
+              {
+                serverName: "MessCraft",
+                serverAddress: "wss://mess.eu.org/s1/",
+                hideAddress: false,
+              },
+              {
+                serverName: "B2",
+                serverAddress: "wss://mc.b2server.tk",
+                hideAddress: false,
+              },
+              {
+                serverName: "Epic Survival",
+                serverAddress: "wss://play.theepicgamer.repl.co/server",
+                hideAddress: false,
+              },
+              {
+                serverName: "IMC.RE",
+                serverAddress: "wss://play.imc.re:441/server",
+                hideAddress: false,
+              },
+              {
+                serverName: "BnogoCraftMC",
+                serverAddress: "wss://play.bnogocarft.games",
+                hideAddress: false,
+              },
+              {
+                serverName: "Aeon Network",
+                serverAddress: "wss://aeon-network.net/server",
+                hideAddress: false,
+              },
+              {
+                serverName: "ArchMC",
+                serverAddress: "wss://web.arch.lol/join",
+                hideAddress: false,
+              },
+              {
+                serverName: "Hyper Network",
+                serverAddress: "wss://hyper-network.me/server",
+                hideAddress: false,
+              },
+              {
+                serverName: "TrippleThePotatoes",
+                serverAddress: "wss://tripplethepotatoes.potatolord5.repl.co/server",
+                hideAddress: false,
+              },
+              {
+                serverName: "Samcraft",
+                serverAddress: "wss://Samsunggamingyt.samsungtah.repl.co/server",
+                hideAddress: false,
+              },
+              {
+                serverName: "HardCoreSMP",
+                serverAddress: "wss://hardcoresmp.mrnewt.repl.co/serve",
+                hideAddress: false,
+              };
 						]
 					};
 					
+					// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					
+					var q = window.location.search;
+					if(typeof q === "string" && q.startsWith("?")) {
+						q = new URLSearchParams(q);
+						var s = q.get("server");
+						if(s) window.eaglercraftXOpts.joinServer = s;
+					}
+					
+					main();
+					
+				}
+			});
+		</script>
+	</head>
+	<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
+	</body>
+</html>
+
 					// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 					
 					var q = window.location.search;
